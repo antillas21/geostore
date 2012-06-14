@@ -33,6 +33,19 @@ group :development do
 	gem 'letter_opener'
 end
 
+group :development, :test do
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+end
+
+group :test do
+	gem 'faker'
+	gem 'capybara'
+	gem 'database_cleaner'
+	gem 'launchy'
+end
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
