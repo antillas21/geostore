@@ -1,0 +1,36 @@
+.form-container
+  = form_for @store do |f|
+    .form-row
+      .form-label
+        = f.label :name
+      .form-field
+        = f.text_field :name
+    .form-row
+      .form-label
+        = f.label :address
+      .form-field
+        = f.text_field :address
+    .form-row
+      .form-label
+        = f.label :city
+      .form-field
+        = f.text_field :city
+    .form-row
+      .form-label
+        = f.label :state
+      .form-field
+        = f.text_field :state
+    .form-row
+      .form-label
+        = f.label :zipcode
+      .form-field
+        = f.text_field :zipcode
+    .form-row
+      .form-label
+        = f.label :country
+      .form-field
+        = f.text_field :country
+    .form-actions
+      .form-row
+        .form-field
+          = f.submit :class => "button"

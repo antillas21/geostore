@@ -20,14 +20,27 @@ describe Store do
   end
 
   describe "Defined properties" do
-    it "prints full address for geocoding" do
-      store = FactoryGirl.create(:store, :address => "130 Heffernan Ave.", :city => "Calexico",
+    before :each do
+      @store = FactoryGirl.create(:store, :address => "130 Heffernan Ave.", :city => "Calexico",
                                  :state => "CA", :zipcode => "92231", :country => "United States")
-      store.full_address.should == "130 Heffernan Ave., Calexico, CA, 92231, United States"
+    end
+
+    it "prints full address for geocoding" do
+      @store.full_address.should == "130 Heffernan Ave., Calexico, CA, 92231, United States"
 
       office = FactoryGirl.create(:store, :address => "200 Imperial Ave.", :city => "Calexico", :state => "CA",
                                   :zipcode => nil, :country => nil)
       office.full_address.should == "200 Imperial Ave., Calexico, CA"
+    end
+
+    it "prints its geolocation data" do
+      @store.geodata.should == "lat: 32.6659539, lng: -115.4948189"
+    end
+
+    it "prints its full data for googlemaps infoWindow" do
+      @store.update_attributes(:name => 'First Test Store Inc.')
+      @store.reload
+      @store.infowindow_data.should == "<strong>First Test Store Inc.</strong><br />130 Heffernan Ave.<br />Calexico, CA, 92231, United States"
     end
   end
 

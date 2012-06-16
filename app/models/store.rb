@@ -10,4 +10,14 @@ class Store < ActiveRecord::Base
   def full_address
     [address, city, state, zipcode, country].compact.join(', ')
   end
+
+  def geodata
+    "lat: #{latitude}, lng: #{longitude}"
+  end
+
+  def infowindow_data
+    infowindow = "<strong>#{name}</strong><br />#{address}<br />"
+    infowindow << [city, state, zipcode, country].compact.join(', ')
+    return infowindow
+  end
 end

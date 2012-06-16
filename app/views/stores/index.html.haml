@@ -1,0 +1,9 @@
+.store-list-container
+  - @stores.each do |store|
+    .store
+      .header
+        %h4= store.name
+      .description
+        = store.full_address
+      .geodata
+        = store.geodata
