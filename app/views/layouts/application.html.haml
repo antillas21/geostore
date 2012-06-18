@@ -2,26 +2,13 @@
 %html
   %head
     %title GeoStore
-    = stylesheet_link_tag "application", :media => "all"
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    = favicon_link_tag
+    = stylesheet_link_tag "application", :media => 'all'
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
-
-    = yield :scripts
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Geostore</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-<%= yield :scripts %>
-</body>
-</html>
- -->
+    #page-wrapper
+      #content-zone.content-zone.container_12
+        = yield
+        = yield :scripts

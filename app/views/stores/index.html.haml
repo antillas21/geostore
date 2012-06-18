@@ -1,15 +1,17 @@
-.head-bar
-  .search-form.grid_8.alpha
+.head-bar.grid_12
+  .search-form.grid_9.alpha
     = form_tag('/stores', :method => :post) do
-      = text_field_tag 'search', (params[:search] ||= 'Enter address, city and state or zipcode'), :size => 50
-      within 
+      Search stores within 
       = select_tag 'distance', options_for_select([ ['5', '5'], ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'] ], (params[:distance] || '20') ) 
-      miles 
+      miles of
+      = text_field_tag 'search', (params[:search] ||= 'Enter address, city and state or zipcode'), :size => 50
       = submit_tag 'search'
-.map-wrapper
+.clear
+.map-wrapper.grid_12
   / = gmaps4rails(@stores_map)
   = gmaps("map_options" => {"center_latitude" => @center_map["lat"], "center_longitude" => @center_map["lng"], "auto_adjust" => true, "auto_zoom" => true}, "markers" => {"data" => @stores_map})
 
   / = gmaps("map_options" => {"detect_location" => true, "center_on_user" => true}, "markers" => {"data" => @stores_map})
-.store-list-container
+.clear
+.store-list-container.grid_12
   = render @stores
