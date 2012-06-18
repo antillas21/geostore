@@ -7,6 +7,8 @@ class Store < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  acts_as_gmappable :address => :full_address, :check_process => false
+
   def full_address
     [address, city, state, zipcode, country].compact.join(', ')
   end
@@ -19,5 +21,9 @@ class Store < ActiveRecord::Base
     infowindow = "<strong>#{name}</strong><br />#{address}<br />"
     infowindow << [city, state, zipcode, country].compact.join(', ')
     return infowindow
+  end
+
+  def gmaps4rails_infowindow
+    infowindow_data
   end
 end
