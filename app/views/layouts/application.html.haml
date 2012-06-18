@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+!!! 5
+%html
+  %head
+    %title GeoStore
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = yield
+
+    = yield :scripts
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Geostore</title>
@@ -13,3 +24,4 @@
 <%= yield :scripts %>
 </body>
 </html>
+ -->
