@@ -5,7 +5,6 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
 gem 'geocoder'
 gem 'gmaps4rails'
 
@@ -35,6 +34,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'mysql2'
+
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
 end
