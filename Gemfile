@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+# gem 'mysql2'
+gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,16 +28,14 @@ end
 
 gem 'jquery-rails'
 
-gem 'puma'
 
 group :development do
 	gem 'quiet_assets'
 	gem 'letter_opener'
+  gem 'puma'
 end
 
 group :development, :test do
-  gem 'mysql2'
-
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
 end
