@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$hotpink: #EE127B;
+
+a, a:link, a:visited {
+  color: $hotpink;
+  padding: 5px 10px;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    background: $hotpink;
+    color: #fff;
+  }
+}
+
 #page-wrapper {
   margin-top: 40px;
 }
@@ -12,5 +25,41 @@
   margin-top: 20px;
 }
 .store {
-  margin-bottom: 10px;
+  background: #eee;
+  margin-bottom: 20px;
+  min-height: 130px;
+
+  .store-card {
+    padding: 10px;
+  }
+}
+input[type=text] {
+  font-size: 12px;
+  padding: 5px;
+  // float: right;
+}
+.input {
+  margin-bottom: 15px;
+}
+.debug {
+  background: #ddd;
+  margin-top: 10px;
+  .content {
+    padding: 20px;
+  }
+  h1, h2, h3, h4, h5, h6, span {
+    color: $hotpink;
+    font-weight: bold;
+  }
+}
+.main-title {
+  margin-bottom: 15px;
+}
+ul.nav-menu {
+  margin-top: 10px;
+
+  li {
+    display: inline-block;
+    margin-left: 0;
+  }
 }

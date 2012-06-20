@@ -6,6 +6,8 @@
       miles of
       = text_field_tag 'search', (params[:search] ||= 'Enter address, city and state or zipcode'), :size => 50
       = submit_tag 'search'
+  .menu.grid_3.omega
+    = render 'layouts/menu'
 .clear
 .map-wrapper.grid_12
   / = gmaps4rails(@stores_map)
@@ -13,5 +15,16 @@
 
   / = gmaps("map_options" => {"detect_location" => true, "center_on_user" => true}, "markers" => {"data" => @stores_map})
 .clear
+.debug.grid_12
+  .content
+    .ip-section
+      %h2 Your IP is #{request.remote_ip}
+    .geolocation
+      %p
+        You are currently visiting us from
+        %span= request.location.city || @city
+
 .store-list-container.grid_12
-  = render @stores
+  %h1.main-title Found #{@stores.count} stores nearby
+  .stores
+    = render @stores
