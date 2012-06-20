@@ -1,6 +1,6 @@
 .head-bar.grid_12
   .search-form.grid_9.alpha
-    = form_tag('/stores', :method => :post) do
+    = form_tag('/', :method => :get) do
       Search stores within 
       = select_tag 'distance', options_for_select([ ['5', '5'], ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'] ], (params[:distance] || '20') ) 
       miles of

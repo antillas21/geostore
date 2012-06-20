@@ -3,11 +3,13 @@ Geostore::Application.routes.draw do
   # first created -> highest priority.
 
   resources :stores do
-    collection do
-      get 'index'
-      post 'index'
-    end
+    # collection do
+    #   get 'index'
+    #   post 'index'
+    # end
   end
+
+  root :to => 'stores#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
