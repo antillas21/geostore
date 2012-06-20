@@ -13,7 +13,7 @@ development:
   encoding: unicode
   database: geostore_development
   pool: 5
-  username: pgraw
+  username: geostore
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -25,7 +25,7 @@ test:
   encoding: unicode
   database: geostore_test
   pool: 5
-  username: pgraw
+  username: geostore
   password:
 
 production:
@@ -33,5 +33,5 @@ production:
   encoding: unicode
   database: geostore_production
   pool: 5
-  username: pgraw
+  username: geostore
   password:
