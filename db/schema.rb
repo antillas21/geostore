@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614203550) do
+ActiveRecord::Schema.define(:version => 20120620032548) do
 
   create_table "stores", :force => true do |t|
     t.string   "name",                                      :null => false
@@ -25,5 +25,14 @@ ActiveRecord::Schema.define(:version => 20120614203550) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
+
+  add_index "stores", ["address", "city", "state", "zipcode"], :name => "by_full_address"
+  add_index "stores", ["address"], :name => "index_stores_on_address"
+  add_index "stores", ["city", "state"], :name => "by_city_and_state"
+  add_index "stores", ["city"], :name => "index_stores_on_city"
+  add_index "stores", ["latitude", "longitude"], :name => "by_latitude_and_longitude"
+  add_index "stores", ["name"], :name => "index_stores_on_name"
+  add_index "stores", ["state"], :name => "index_stores_on_state"
+  add_index "stores", ["zipcode"], :name => "index_stores_on_zipcode"
 
 end

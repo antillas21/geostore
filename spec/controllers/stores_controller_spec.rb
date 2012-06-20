@@ -4,12 +4,12 @@ describe StoresController do
   describe 'GET #index' do
     it "populates an array of stores" do
       store = FactoryGirl.create(:store)
-      get :index
+      get :index, @params = {:search => 'National City, CA', :distance => 20}
       assigns(:stores).should == [store]
     end
 
     it "renders the :index view" do
-      get :index
+      get :index, @params = {:search => 'National City, CA', :distance => 20}
       response.should render_template :index
     end
   end
